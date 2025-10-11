@@ -2,6 +2,7 @@
 // キーマップを更新する方法は https://o24.works/fish/guide を参照
 // 視覚的に編集するには https://o24.works/fish/editor を参照
 
+#include "keycode_japanese.h"
 
 // 定義を呼んでくる
 #include <behaviors.dtsi>
