@@ -120,18 +120,18 @@
 
         layer_math {
             bindings = <
-                        &kp N1      &kp N2      &kp N3      &trans              &kp CARET   &kp LT      &kp EQUAL   &kp GT
-&kp TILDE   &kp N0      &mt LGUI N4 &mt LALT N5 &mt LSHFT N6 &kp DOT            &kp UNDER   &mt RSHFT PLUS &mt RALT MINUS &mt RGUI STAR &kp FSLH &kp PRCNT
-            &kp DLLR    &kp N7      &kp N8      &kp N9                                      &kp EXCL    &kp QMARK   &kp COLON   &kp SEMI
+                        &kp N1      &kp N2      &kp N3      &trans              &kp EQUAL   &kp LT      &kp UNDER   &kp GT
+&kp PLUS    &kp N0      &mt LGUI N4 &mt LALT N5 &mt LSHFT N6 &kp DOT            &kp LS(INT1) &mt RSHFT COLON &mt RALT MINUS &mt RGUI DQT &kp FSLH &kp PRCNT
+            &kp DLLR    &kp N7      &kp N8      &kp N9                                      &kp EXCL    &kp QMARK   &kp SQT     &kp SEMI
                                                 &none       &trans              &trans      &trans
             >;
         };
 
         layer_navi {
             bindings = <
-                        &kp LBKT    &kp DQT     &kp RBKT    &kp AMPS            &kp C_VOL_UP &kp ESC    &kp UP      &kp CAPS
-&kp AT      &kp HASH    &mt LCTRL LPAR &mt LALT SQT &mt LSHFT RPAR &kp PIPE     &kp C_VOL_DN &kp LEFT   &kp DOWN    &kp RIGHT   &kp C_BRI_UP &kp PSCRN
-            &kp BSLH    &kp LBRC    &kp GRAVE   &kp RBRC                                    &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_BRI_DN
+                        &kp RBKT    &kp AT      &kp NUHS    &kp CARET           &kp C_VOL_UP &kp ESC    &kp UP      &kp CAPS
+&kp LBKT    &kp HASH    &mt LCTRL STAR &mt LALT AMPS &mt LSHFT LPAR &kp LS(INT3) &kp C_VOL_DN &kp LEFT   &kp DOWN    &kp RIGHT   &kp C_BRI_UP &kp PSCRN
+            &kp INT1    &kp RBRC    &kp LBRC    &kp TILDE2                                  &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_BRI_DN
                                                 &trans      &trans              &trans      &none
             >;
         };
