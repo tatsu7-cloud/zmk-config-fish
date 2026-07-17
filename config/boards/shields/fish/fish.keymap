@@ -177,7 +177,7 @@
         layer_extra_1 {
             bindings = <
                         &kp LG(V)   &kp LC(O)   &kp LG(D)   &kp LS(LG(LEFT)) &kp LG(UP)  &kp LC(W)   &kp LS(LC(TAB)) &kp LC(R)
-&kp LG(LEFT) &kp LS(LC(DELETE)) &kp LG(I) &kp LA(TAB) &kp LS(LA(TAB)) &kp LS(LG(RIGHT))  &kp LG(DOWN) &kp LC(T)   &kp LC(TAB) &kp LS(LC(T)) &kp LS(LG(S)) &kp LG(RIGHT)
+&kp LG(LEFT) &kp LS(LC(DELETE)) &kp LG(I) &kp HOME     &kp END        &kp LS(LG(RIGHT))  &kp LG(DOWN) &kp LC(T)   &kp LC(TAB) &kp LS(LC(T)) &kp LS(LG(S)) &kp LG(RIGHT)
             &none       &none       &kp LS(LG(T)) &kp LG(T)                              &none       &none       &sl 6       &kp PRINTSCREEN
                                                 &trans      &trans              &trans      &trans
             >;
