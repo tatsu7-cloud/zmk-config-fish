@@ -32,6 +32,7 @@
 };
 
 &sl {
+    release-after-ms = <2000>;
 };
 
 &caps_word {
@@ -122,7 +123,7 @@
                         &kp N1      &kp N2      &kp N3      &trans              &kp CARET   &kp LT      &kp EQUAL   &kp GT
 &kp TILDE   &kp N0      &mt LGUI N4 &mt LALT N5 &mt LSHFT N6 &kp DOT            &kp UNDER   &mt RSHFT PLUS &mt RALT MINUS &mt RGUI STAR &kp FSLH &kp PRCNT
             &kp DLLR    &kp N7      &kp N8      &kp N9                                      &kp EXCL    &kp QMARK   &kp COLON   &kp SEMI
-                                                &none       &trans              &trans      &lt 6 SPACE
+                                                &none       &trans              &trans      &trans
             >;
         };
 
@@ -131,7 +132,7 @@
                         &kp LBKT    &kp DQT     &kp RBKT    &kp AMPS            &kp C_VOL_UP &kp ESC    &kp UP      &kp CAPS
 &kp AT      &kp HASH    &mt LCTRL LPAR &mt LALT SQT &mt LSHFT RPAR &kp PIPE     &kp C_VOL_DN &kp LEFT   &kp DOWN    &kp RIGHT   &kp C_BRI_UP &kp PSCRN
             &kp BSLH    &kp LBRC    &kp GRAVE   &kp RBRC                                    &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_BRI_DN
-                                                &lt 6 BSPC  &trans              &trans      &none
+                                                &trans      &trans              &trans      &none
             >;
         };
 
@@ -177,7 +178,7 @@
             bindings = <
                         &kp LG(V)   &kp LC(O)   &kp LG(D)   &kp LS(LG(LEFT)) &kp LG(UP)  &kp LC(W)   &kp LS(LC(TAB)) &kp LC(R)
 &kp LG(LEFT) &kp LS(LC(DELETE)) &kp LG(I) &kp LA(TAB) &kp LS(LA(TAB)) &kp LS(LG(RIGHT))  &kp LG(DOWN) &kp LC(T)   &kp LC(TAB) &kp LS(LC(T)) &kp LS(LG(S)) &kp LG(RIGHT)
-            &none       &none       &kp LS(LG(T)) &kp LG(T)                              &none       &none       &none       &kp PRINTSCREEN
+            &none       &none       &kp LS(LG(T)) &kp LG(T)                              &none       &none       &sl 6       &kp PRINTSCREEN
                                                 &trans      &trans              &trans      &trans
             >;
         };
