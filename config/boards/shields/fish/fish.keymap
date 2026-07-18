@@ -88,11 +88,13 @@
         combo_reset_L {
             key-positions = <3 8 13>;
             bindings = <&bootloader>;
+            layers = <0 1 2 3 4 5 6>;
         };
 
         combo_reset_R {
             key-positions = <4 14 19>;
             bindings = <&bootloader>;
+            layers = <0 1 2 3 4 5 6>;
         };
 
         combo_studio_unlock {
@@ -176,9 +178,9 @@
         // Windows操作用ショートカットを設定
         layer_extra_1 {
             bindings = <
-                        &kp LG(V)   &kp LC(O)   &kp LG(D)   &kp LS(LG(LEFT)) &kp LG(UP)  &kp LC(W)   &kp LS(LC(TAB)) &kp LC(R)
-&kp LG(LEFT) &kp LS(LC(DELETE)) &kp LG(I) &kp HOME     &kp END        &kp LS(LG(RIGHT))  &kp LG(DOWN) &kp LC(T)   &kp LC(TAB) &kp LS(LC(T)) &kp LS(LG(S)) &kp LG(RIGHT)
-            &none       &none       &kp LS(LG(T)) &kp LG(T)                              &none       &none       &sl 6       &kp PRINTSCREEN
+                        &kp LC(LA(N1)) &kp LC(LA(N2)) &kp LC(LA(N3)) &kp LC(LA(N5))      &kp LC(LA(N6)) &kp LC(LA(N7)) &kp LC(LA(N8)) &kp LC(LA(N9))
+&kp LC(LA(N0)) &kp LC(LA(LS(N1))) &kp LC(LA(N4)) &kp LC(LA(LS(N2))) &kp LC(LA(LS(N3))) &kp LC(LA(LS(N4))) &kp LC(LA(LS(N5))) &kp HOME &kp LC(LA(LS(N6))) &kp END &kp LC(LA(LS(N7))) &sl 6
+            &kp LC(LA(LS(N8))) &kp LC(LA(LS(N9))) &kp LC(LA(LS(N0))) &kp LC(LA(LS(A)))                &kp LC(LA(LS(B))) &kp LC(LA(LS(C))) &kp LC(LA(LS(D))) &kp LC(LA(LS(E)))
                                                 &trans      &trans              &trans      &trans
             >;
         };
