@@ -4,16 +4,12 @@
 
 #include "keycode_japanese.h"
 
-// 定義を呼んでくる
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
-
-
-// 特殊入力の挙動を調整できる
 
 &mt {
     flavor = "tap-preferred";
@@ -41,29 +37,24 @@
 &key_repeat {
 };
 
-
 / {
-    // 独自の入力を定義できる（上級者向け）
-
     behaviors {
     };
 
     macros {
     };
 
-    // レイヤー1とレイヤー2が同時に有効になった場合、
-    // PC操作用のレイヤー7を有効にする
+    // レイヤー1と2が同時に有効になった場合、
+    // Windows操作用レイヤー6を有効にする
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         pc_layer {
             if-layers = <1 2>;
-            then-layer = <7>;
+            then-layer = <6>;
         };
     };
 
-
-    // 複数キーの同時押しに特別の入力を設定できる
     // キー番号早見表：
     //       0  1  2  3     4  5  6  7
     // 8  9 10 11 12 13    14 15 16 17 18 19
@@ -85,16 +76,18 @@
             bindings = <&kp LANG1>;
         };
 
+        // Windows操作レイヤー6を除き、
+        // 基本・数字・ナビ・Mac各レイヤーとシステムレイヤー7で有効
         combo_reset_L {
             key-positions = <3 8 13>;
             bindings = <&bootloader>;
-            layers = <0 1 2 3 4 5 6>;
+            layers = <0 1 2 3 4 5 7>;
         };
 
         combo_reset_R {
             key-positions = <4 14 19>;
             bindings = <&bootloader>;
-            layers = <0 1 2 3 4 5 6>;
+            layers = <0 1 2 3 4 5 7>;
         };
 
         combo_studio_unlock {
@@ -103,14 +96,10 @@
         };
     };
 
-
-    // キーに入力を割り当てる
-    // 型（&...）は https://zmk.dev/docs/behaviors/... を参照
-    // キーコードは https://zmk.dev/docs/codes/... を参照
-
     keymap {
         compatible = "zmk,keymap";
 
+        // レイヤー0：基本（大西配列）
         layer_base {
             bindings = <
                         &kp L       &kp U       &kp F       &kp MINUS           &kp K       &kp W       &kp R       &kp Y
@@ -120,6 +109,7 @@
             >;
         };
 
+        // レイヤー1：数字・記号
         layer_math {
             bindings = <
                         &kp N1      &kp N2      &kp N3      &trans              &kp EQUAL   &kp LT      &kp UNDER   &kp GT
@@ -129,6 +119,7 @@
             >;
         };
 
+        // レイヤー2：ナビゲーション・記号
         layer_navi {
             bindings = <
                         &kp RBKT    &kp AT      &kp NUHS    &kp CARET           &kp C_VOL_UP &kp ESC    &kp UP      &kp CAPS
@@ -138,6 +129,7 @@
             >;
         };
 
+        // レイヤー3：Mac基本
         layer_mac_base {
             bindings = <
                         &kp L       &kp U       &kp F       &kp MINUS           &kp K       &kp W       &kp R       &kp Y
@@ -147,44 +139,48 @@
             >;
         };
 
+        // レイヤー4：Mac数字・記号
         layer_mac_math {
             bindings = <
                         &kp N1      &kp N2      &kp N3      &trans              &kp CARET   &kp LT      &kp EQUAL   &kp GT
 &kp TILDE   &kp N0      &mt LCTRL N4 &mt LALT N5 &mt LSHFT N6 &kp DOT           &kp UNDER   &mt RSHFT PLUS &mt RALT MINUS &mt RCTRL STAR &kp FSLH &kp PRCNT
             &kp DLLR    &kp N7      &kp N8      &kp N9                                      &kp EXCL    &kp QMARK   &kp COLON   &kp SEMI
-                                                &none       &trans              &trans      &lt 6 SPACE
+                                                &none       &trans              &trans      &lt 7 SPACE
             >;
         };
 
+        // レイヤー5：Macナビゲーション
         layer_mac_navi {
             bindings = <
                         &kp LBKT    &kp DQT     &kp RBKT    &kp AMPS            &kp C_VOL_UP &kp ESC    &kp UP      &kp CAPS
 &kp AT      &kp HASH    &mt LGUI LPAR &mt LALT SQT &mt LSHFT RPAR &kp PIPE      &kp C_VOL_DN &kp LEFT   &kp DOWN    &kp RIGHT   &kp C_BRI_UP &kp LS(LG(N3))
             &kp BSLH    &kp LBRC    &kp GRAVE   &kp RBRC                                    &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_BRI_DN
-                                                &lt 6 BSPC  &trans              &trans      &none
+                                                &lt 7 BSPC  &trans              &trans      &none
             >;
         };
 
-        layer_system {
-            bindings = <
-                        &bt BT_SEL 4 &bt BT_CLR &bt BT_CLR_ALL &out OUT_TOG     &tog 3      &kp INS     &kp HOME    &kp PG_UP
-&kp F1      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp F6          &kp F7      &kp DEL     &kp END     &kp PG_DN   &kp K_APP   &kp F12
-            &kp F2      &kp F3      &kp F4      &kp F5                                      &kp F8      &kp F9      &kp F10     &kp F11
-                                                &none       &none               &none       &none
-            >;
-        };
-
-        // PC操作用レイヤー：レイヤー7
-        // Windows操作用ショートカットを設定
+        // レイヤー6：Windows操作用ショートカット＋F1～F12
         layer_extra_1 {
             bindings = <
-                        &kp LC(LA(N1)) &kp LC(LA(N2)) &kp LC(LA(N3)) &kp LC(LA(N5))      &kp LC(LA(N6)) &kp LC(LA(N7)) &kp LC(LA(N8)) &kp LC(LA(N9))
-&kp LC(LA(N0)) &kp LC(LA(LS(N1))) &kp LC(LA(N4)) &kp LC(LA(LS(N2))) &kp LC(LA(LS(N3))) &kp LC(LA(LS(N4))) &kp LC(LA(LS(N5))) &kp HOME &kp LC(LA(LS(N6))) &kp END &kp LC(LA(LS(N7))) &sl 6
-            &kp LC(LA(LS(N8))) &kp LC(LA(LS(N9))) &kp LC(LA(LS(N0))) &kp LC(LA(LS(A)))                &kp LC(LA(LS(B))) &kp LC(LA(LS(C))) &kp LC(LA(LS(D))) &kp LC(LA(LS(E)))
+                        &kp F1      &kp F2      &kp F3      &kp LC(LA(N5))      &kp LC(LA(N6)) &kp F10 &kp F11 &kp F12
+&kp LC(LA(N0)) &kp LC(LA(LS(N1))) &kp F4 &kp F5 &kp F6 &kp LC(LA(LS(N4))) &kp LC(LA(LS(N5))) &kp HOME &kp LC(LA(LS(N6))) &kp END &kp LC(LA(LS(N7))) &sl 7
+            &kp LC(LA(LS(N8))) &kp F7 &kp F8 &kp F9                                  &kp LC(LA(LS(B))) &kp LC(LA(LS(C))) &kp LC(LA(LS(D))) &kp LC(LA(LS(E)))
                                                 &trans      &trans              &trans      &trans
             >;
         };
 
+        // レイヤー7：Bluetooth操作専用
+        // 左手側のBluetooth操作以外は無効化
+        layer_system {
+            bindings = <
+                        &bt BT_SEL 4 &bt BT_CLR &bt BT_CLR_ALL &out OUT_TOG     &none       &none       &none       &none
+&none       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none          &none       &none       &none       &none       &none       &none
+            &none       &none       &none       &none                                       &none       &none       &none       &none
+                                                &none       &none               &none       &none
+            >;
+        };
+
+        // 予備レイヤー8
         layer_extra_2 {
             bindings = <
                         &none       &none       &none       &none               &none       &none       &none       &none
@@ -194,6 +190,7 @@
             >;
         };
 
+        // 予備レイヤー9
         layer_extra_3 {
             bindings = <
                         &none       &none       &none       &none               &none       &none       &none       &none
