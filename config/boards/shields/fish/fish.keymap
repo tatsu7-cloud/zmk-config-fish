@@ -38,7 +38,14 @@
 };
 
 / {
-    behaviors {
+        behaviors {
+        enter_ctrl: enter_ctrl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <175>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     macros {
@@ -105,7 +112,7 @@
                         &kp L       &kp U       &kp F       &kp MINUS           &kp K       &kp W       &kp R       &kp Y
 &kp Q       &kp E       &mt LGUI I  &mt LALT A  &mt LSHFT O &kp COMMA           &kp G       &mt RSHFT T &mt RALT N  &mt RGUI S  &kp H       &kp P
             &kp Z       &kp X       &kp C       &kp V                                       &kp D       &kp M       &kp J       &kp B
-                                                &lt 1 BSPC  &mt LCTRL RET       &mt RCTRL TAB &lt 2 SPACE
+                                                &lt 1 BSPC  &enter_ctrl LCTRL RET  &mt RCTRL TAB  &lt 2 SPACE
             >;
         };
 
