@@ -73,6 +73,7 @@
         combo_lang1 {
             key-positions = <15 16>;
             bindings = <&kp LANG1>;
+            layers = <0 1 2 3 4 5 6 7 9>;
         };
 
         combo_reset_L {
@@ -173,8 +174,8 @@
 
         layer_extra_2 {
             bindings = <
-                        &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans
-&trans       &trans       &trans       &trans       &trans       &trans               &trans       &trans       &trans       &trans       &trans       &trans 
+                        &trans       &trans       &trans       &trans               &trans       &trans       &mmv MOVE_UP       &trans
+&trans       &trans       &trans       &trans       &trans       &trans               &trans       &mmv MOVE_LEFT       &mmv MOVE_DOWN       &mmv MOVE_RIGHT       &trans       &trans 
             &trans       &trans       &trans       &trans                                       &mkp LCLK       &mkp RCLK       &trans       &trans
                                                 &trans       &trans               &trans       &trans       
             >;
